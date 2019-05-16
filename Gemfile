@@ -23,6 +23,8 @@ gem "title"
 gem "tzinfo-data", platforms: [:mingw, :x64_mingw, :mswin, :jruby]
 gem "uglifier"
 gem "bootsnap", require: false
+gem 'jquery-rails'
+gem 'bootstrap-sass'
 
 
 group :development do

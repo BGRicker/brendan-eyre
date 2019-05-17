@@ -1,21 +1,7 @@
-@charset "utf-8";
-
-@import "normalize.css/normalize";
-
-@import "bourbon";
-@import "neat";
-
-@import "base/base";
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-
-
-@import url("font-awesome_icon-font.css");
-@import url("et-line_icon-font.css");
-@import url("./plugins/owl.carousel.css");
-@import url("./plugins/magnific-popup.css");
+﻿
+@import url("fonts/font-awesome_icon-font.css");
+@import url("fonts/et-line_icon-font.css");
+@import url("./js/owl.carousel.css");
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,200,300,500,600,700,800);
@@ -4130,17 +4116,9 @@ form .error {
     display: inline-block;
 }
 
-.post-share .post-share-social a {
-  display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-.background-header {
-  background-image:url("/01.jpg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-  display:block;
-}
+    .post-share .post-share-social a {
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 18px;
+    }

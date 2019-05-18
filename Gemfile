@@ -25,6 +25,8 @@ gem "uglifier"
 gem "bootsnap", require: false
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'bcrypt'
+gem 'devise'
 
 
 group :development do

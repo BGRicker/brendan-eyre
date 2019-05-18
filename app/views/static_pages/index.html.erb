@@ -60,6 +60,9 @@
               <li>
                 <a href="press.html" class="external">Press</a>
               </li>
+              <% if current_user %>
+                <li><%= link_to "New Show", new_show_path %></li>
+              <% end %>
             </ul>
           </div>
           <!-- End Navbar Navigation -->
@@ -117,49 +120,14 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <a href = "https://www.n2ocomedy.com">
+              <% @shows.each do |show| %>
+                <a href = <% show.link %>>
                 <div class="history-box mb-30">
-                  <h6 class="alt-title history-year">May 23-25</h6>
-                  <h4 class="alt-title history-title">Laughing Gas Comedy Club - Cape Girardeau, MO</h4>
+                  <h6 class="alt-title history-year"><%= show.dates %></h6>
+                  <h4 class="alt-title history-title"><%= show.venue %> <%= show.location %></h4>
                 </div>
               </a>
-
-              <a href = "http://philadelphiabrewing.com/">
-                <div class="history-box mb-30">
-                  <h6 class="alt-title history-year">June 22</h6>
-                  <h4 class="alt-title history-title">Philadelphia Brewing Company - Philadelphia, PA</h4>
-                </div>
-              </a>
-
-              <a href = "http://www.ricomedyconnection.com/">
-                <div class="history-box mb-30">
-                  <h6 class="alt-title history-year">June 23</h6>
-                  <h4 class="alt-title history-title">Comedy Connection - Providence, RI</h4>
-                </div>
-              </a>
-
-              <a href = "http://comedycabana.com/">
-                <div class="history-box mb-30">
-                  <h6 class="alt-title history-year">July 1-7</h6>
-                  <h4 class="alt-title history-title">Comedy Cabana w/Greg Warren - Myrtle Beach, SC</h4>
-                </div>
-              </a>
-
-              <a href = "https://www.diamondjodubuque.com/">
-                <div class="history-box mb-30">
-                  <h6 class="alt-title history-year">July 10</h6>
-                  <h4 class="alt-title history-title">Diamond Jo’s Casino - Dubuque, IA</h4>
-                </div>
-              </a>
-
-              <a href = "https://penguinscomedyclub.com/mobile/">
-                <div class="history-box mb-30">
-                  <h6 class="alt-title history-year">July 12-13</h6>
-                  <h4 class="alt-title history-title">Penguins Comedy Club - Cedar Rapids, IA</h4>
-                </div>
-              </a>
-
-
+            <% end %>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
   def index
-    @shows = Show.all
+    @shows = Show.valid_shows
   end
 end

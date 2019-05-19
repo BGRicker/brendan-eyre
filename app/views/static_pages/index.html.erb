@@ -121,13 +121,13 @@
           <div class="row">
             <div class="col-md-12">
               <% @shows.each do |show| %>
-                <a href = <% show.link %>>
-                <div class="history-box mb-30">
-                  <h6 class="alt-title history-year"><%= show.dates %></h6>
-                  <h4 class="alt-title history-title"><%= show.venue %> <%= show.location %></h4>
-                </div>
-              </a>
-            <% end %>
+                <%= link_to show.link do %>
+                  <div class="history-box mb-30">
+                    <h6 class="alt-title history-year"><%= show.dates %></h6>
+                    <h4 class="alt-title history-title"><%= show.venue %> <%= show.location %></h4>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>

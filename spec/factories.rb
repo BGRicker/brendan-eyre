@@ -1,15 +1,15 @@
 FactoryBot.define do
   factory :show do
-    dates { "MyString" }
-    venue { "MyString" }
-    location { "MyString" }
-    link { "MyString" }
-    note { "MyString" }
-    user { nil }
+    sequence(:dates) { |n| Date.current + n.days }
+    venue { "Laugh Boston" }
+    location { "Boston, MA" }
+    link { "www.laughboston.com" }
+    note { "Live recording of the podcast" }
   end
 
   factory :user do
-    
+    email { "bgricker@gmail.com" }
+    password { 'grillingandchilling' }
   end
 
 end

@@ -23,7 +23,7 @@
         <td><%= show.location %></td>
         <td><%= show.link %></td>
         <td><%= show.note %></td>
-        <td><%= show.user %></td>
+        <td><%= show.user.email %></td>
         <td><%= link_to 'Show', show %></td>
         <td><%= link_to 'Edit', edit_show_path(show) %></td>
         <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>

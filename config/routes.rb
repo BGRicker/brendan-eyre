@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :shows
-  devise_for :users
   root 'static_pages#index'
+
+  devise_for :users
+  devise_scope :user do
+    get 'sign_in', to: 'devise/sessions#new'
+  end
+
+  resources :shows
 end

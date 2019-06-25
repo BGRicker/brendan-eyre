@@ -43,22 +43,22 @@
           <div class="nav-menu singlepage-nav">
             <ul class="nav-menu-inner">
               <li>
-                <a class="current" href="#intro">Home</a>
+                <%= link_to "Home", "http://www.brendaneyre.com#intro" %>
               </li>
               <li>
-                <a href="#about">About</a>
+                <%= link_to "About", "http://www.brendaneyre.com#about" %>
               </li>
               <li>
-                <a href="#shows">Shows</a>
+                <%= link_to "Shows", "http://www.brendaneyre.com#shows" %>
               </li>
               <li>
-                <a href="#podcast">Podcast</a>
+                <%= link_to "Podcast", "http://www.brendaneyre.com#podcast" %>
               </li>
               <li>
-                <a href="#footer">Contact</a>
+                <%= link_to "Contact", "http://www.brendaneyre.com#footer" %>
               </li>
               <li>
-                <a href="press.html" class="external">Press</a>
+                <%= link_to "Press", "http://www.brendaneyre.com/press.html" %>
               </li>
               <% if current_user %>
                 <li><%= link_to "New Show", new_show_path %></li>

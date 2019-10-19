@@ -4,7 +4,6 @@ class ShowsController < ApplicationController
 
   # GET /shows
   def index
-    @shows = Show.all
   end
 
   # GET /shows/1
@@ -18,10 +17,12 @@ class ShowsController < ApplicationController
 
   # GET /shows/1/edit
   def edit
+
   end
 
   # POST /shows
   def create
+
     @show = current_user.shows.new(show_params)
 
     if @show.save
@@ -39,6 +40,7 @@ class ShowsController < ApplicationController
       render :edit
     end
   end
+
 
   # DELETE /shows/1
   def destroy

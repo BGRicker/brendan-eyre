@@ -4,6 +4,15 @@ class Show < ApplicationRecord
   attr_reader :formatted_date
 
   def formatted_date
+    if dates.include?('-')
+      array = dates.split
+      dash_index = array.find_index('-')
+      prior_date = dash_index - 1
+
+      array.slice!(1..2)
+      return array.join(' ').to_date
+    end
+
     dates.to_date
   end
 

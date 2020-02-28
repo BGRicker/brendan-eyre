@@ -1,7 +1,7 @@
 require Rails.root.join("config/smtp")
 Rails.application.configure do
-  # ENV["APPLICATION_HOST"] = ENV["HEROKU_APP_NAME"] + ".herokuapp.com"
-  # ENV["ASSET_HOST"] = ENV["HEROKU_APP_NAME"] + ".herokuapp.com"
+  ENV["APPLICATION_HOST"] = 'www.brendaneyre.com'
+  ENV["ASSET_HOST"] = 'www.brendaneyre.com'
   config.cache_classes = true
   config.eager_load = true
   config.consider_all_requests_local       = false

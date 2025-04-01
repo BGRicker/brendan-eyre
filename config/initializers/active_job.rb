@@ -4,8 +4,14 @@ ActiveSupport::Notifications.unsubscribe("enqueue.active_job")
 
 module ActiveJob
   module Logging
-    class EnqueueLogSubscriber < LogSubscriber
-      define_method :enqueue, instance_method(:enqueue)
+    class EnqueueLogSubscriber < ActiveSupport::LogSubscriber
+      def enqueue(event)
+        # Custom enqueue logging implementation
+        info do
+          job = event.payload[:job]
+          "Enqueued #{job.class.name} (Job ID: #{job.job_id})"
+        end
+      end
     end
   end
 end

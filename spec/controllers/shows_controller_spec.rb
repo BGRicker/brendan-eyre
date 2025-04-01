@@ -24,50 +24,55 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe ShowsController, type: :controller do
-
-  # This should return the minimal set of attributes required to create a valid
-  # Show. As you add validations to Show, be sure to
-  # adjust the attributes here as well.
+  let(:user) { create(:user) }
+  
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      dates: "2024-04-01",
+      venue: "The Venue",
+      location: "New York, NY",
+      link: "http://example.com/show",
+      note: "Great show!"
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      dates: nil,
+      venue: nil,
+      location: nil
+    }
   }
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # ShowsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  before { sign_in user }
 
   describe "GET #index" do
     it "returns a success response" do
-      Show.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      Show.create! valid_attributes.merge(user: user)
+      get :index
       expect(response).to be_successful
     end
   end
 
   describe "GET #show" do
     it "returns a success response" do
-      show = Show.create! valid_attributes
-      get :show, params: {id: show.to_param}, session: valid_session
+      show = Show.create! valid_attributes.merge(user: user)
+      get :show, params: {id: show.to_param}
       expect(response).to be_successful
     end
   end
 
   describe "GET #new" do
     it "returns a success response" do
-      get :new, params: {}, session: valid_session
+      get :new
       expect(response).to be_successful
     end
   end
 
   describe "GET #edit" do
     it "returns a success response" do
-      show = Show.create! valid_attributes
-      get :edit, params: {id: show.to_param}, session: valid_session
+      show = Show.create! valid_attributes.merge(user: user)
+      get :edit, params: {id: show.to_param}
       expect(response).to be_successful
     end
   end
@@ -76,20 +81,20 @@ RSpec.describe ShowsController, type: :controller do
     context "with valid params" do
       it "creates a new Show" do
         expect {
-          post :create, params: {show: valid_attributes}, session: valid_session
+          post :create, params: {show: valid_attributes}
         }.to change(Show, :count).by(1)
       end
 
       it "redirects to the created show" do
-        post :create, params: {show: valid_attributes}, session: valid_session
+        post :create, params: {show: valid_attributes}
         expect(response).to redirect_to(Show.last)
       end
     end
 
     context "with invalid params" do
-      it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {show: invalid_attributes}, session: valid_session
-        expect(response).to be_successful
+      it "returns unprocessable entity status" do
+        post :create, params: {show: invalid_attributes}
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
@@ -97,45 +102,50 @@ RSpec.describe ShowsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          dates: "2024-04-02",
+          venue: "Updated Venue",
+          location: "Los Angeles, CA"
+        }
       }
 
       it "updates the requested show" do
-        show = Show.create! valid_attributes
-        put :update, params: {id: show.to_param, show: new_attributes}, session: valid_session
+        show = Show.create! valid_attributes.merge(user: user)
+        put :update, params: {id: show.to_param, show: new_attributes}
         show.reload
-        skip("Add assertions for updated state")
+        expect(show.dates).to eq("2024-04-02")
+        expect(show.venue).to eq("Updated Venue")
+        expect(show.location).to eq("Los Angeles, CA")
       end
 
       it "redirects to the show" do
-        show = Show.create! valid_attributes
-        put :update, params: {id: show.to_param, show: valid_attributes}, session: valid_session
+        show = Show.create! valid_attributes.merge(user: user)
+        put :update, params: {id: show.to_param, show: valid_attributes}
         expect(response).to redirect_to(show)
       end
     end
 
     context "with invalid params" do
-      it "returns a success response (i.e. to display the 'edit' template)" do
-        show = Show.create! valid_attributes
-        put :update, params: {id: show.to_param, show: invalid_attributes}, session: valid_session
-        expect(response).to be_successful
+      it "returns unprocessable entity status" do
+        show = Show.create! valid_attributes.merge(user: user)
+        put :update, params: {id: show.to_param, show: invalid_attributes}
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 
   describe "DELETE #destroy" do
     it "destroys the requested show" do
-      show = Show.create! valid_attributes
+      show = Show.create! valid_attributes.merge(user: user)
       expect {
-        delete :destroy, params: {id: show.to_param}, session: valid_session
+        delete :destroy, params: {id: show.to_param}
       }.to change(Show, :count).by(-1)
     end
 
     it "redirects to the shows list" do
-      show = Show.create! valid_attributes
-      delete :destroy, params: {id: show.to_param}, session: valid_session
+      show = Show.create! valid_attributes.merge(user: user)
+      delete :destroy, params: {id: show.to_param}
       expect(response).to redirect_to(shows_url)
     end
   end
-
 end

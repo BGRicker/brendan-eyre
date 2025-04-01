@@ -27,7 +27,7 @@ class ShowsController < ApplicationController
     if @show.save
       redirect_to @show, notice: 'Show was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -36,7 +36,7 @@ class ShowsController < ApplicationController
     if @show.update(show_params)
       redirect_to @show, notice: 'Show was successfully updated.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -54,6 +54,6 @@ class ShowsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def show_params
-      params.require(:show).permit(:dates, :venue, :location, :link, :note, :user_id)
+      params.require(:show).permit(:dates, :venue, :location, :link, :note)
     end
 end

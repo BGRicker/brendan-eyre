@@ -101,6 +101,8 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.6.1)
     docile (1.4.1)
+    dockerfile-rails (1.7.9)
+      rails (>= 3.0.0)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -112,7 +114,7 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
-    ffi (1.17.1-arm64-darwin)
+    ffi (1.17.1)
     formulaic (0.4.2)
       activesupport
       capybara
@@ -165,6 +167,8 @@ GEM
       net-protocol
     nio4r (2.7.4)
     nokogiri (1.15.7-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.7-x86_64-linux)
       racc (~> 1.4)
     oj (3.16.10)
       bigdecimal (>= 3.0)
@@ -327,6 +331,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-24
+  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
@@ -340,6 +345,7 @@ DEPENDENCIES
   capybara-selenium
   delayed_job_active_record
   devise
+  dockerfile-rails (>= 1.7)
   dotenv-rails
   factory_bot_rails
   formulaic

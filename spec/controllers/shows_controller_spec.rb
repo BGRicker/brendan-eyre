@@ -24,16 +24,35 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe ShowsController, type: :controller do
+  let(:user) { create(:user) }
+
+  before do
+    sign_in user
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Show. As you add validations to Show, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      dates: "October 31",
+      venue: "Test Venue",
+      location: "Test Location",
+      link: "http://test.com",
+      note: "Test Note",
+      user_id: user.id
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      dates: nil,
+      venue: nil,
+      location: nil,
+      link: nil,
+      note: nil,
+      user_id: nil
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -91,20 +110,36 @@ RSpec.describe ShowsController, type: :controller do
         post :create, params: {show: invalid_attributes}, session: valid_session
         expect(response).to be_successful
       end
+
+      it "does not create a new show" do
+        expect {
+          post :create, params: {show: invalid_attributes}, session: valid_session
+        }.not_to change(Show, :count)
+      end
     end
   end
 
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          dates: "November 1",
+          venue: "Updated Venue",
+          location: "Updated Location",
+          link: "http://updated.com",
+          note: "Updated Note"
+        }
       }
 
       it "updates the requested show" do
         show = Show.create! valid_attributes
         put :update, params: {id: show.to_param, show: new_attributes}, session: valid_session
         show.reload
-        skip("Add assertions for updated state")
+        expect(show.dates).to eq("November 1")
+        expect(show.venue).to eq("Updated Venue")
+        expect(show.location).to eq("Updated Location")
+        expect(show.link).to eq("http://updated.com")
+        expect(show.note).to eq("Updated Note")
       end
 
       it "redirects to the show" do
@@ -119,6 +154,14 @@ RSpec.describe ShowsController, type: :controller do
         show = Show.create! valid_attributes
         put :update, params: {id: show.to_param, show: invalid_attributes}, session: valid_session
         expect(response).to be_successful
+      end
+
+      it "does not update the show" do
+        show = Show.create! valid_attributes
+        original_attributes = show.attributes
+        put :update, params: {id: show.to_param, show: invalid_attributes}, session: valid_session
+        show.reload
+        expect(show.attributes).to eq(original_attributes)
       end
     end
   end

@@ -5,13 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.6.3"
+ruby "2.7.7"
 
 
 gem "autoprefixer-rails"
 
 gem "honeybadger"
-gem "pg"
+gem "pg", "~> 1.5.0"
 gem "puma"
 gem "rack-canonical-host"
 gem "rails", "~> 5.2.0"
@@ -62,7 +62,7 @@ gem 'spring-commands-rspec', group: :development
 gem 'rspec-rails', '~> 3.6', group: [:development, :test]
 gem 'shoulda-matchers', group: :test
 gem 'capybara-selenium', group: :test
-gem 'chromedriver-helper', group: :test
+gem 'webdrivers', group: :test
 gem 'simple_form'
 gem 'bullet', group: [:development, :test]
 gem 'factory_bot_rails', group: [:development, :test]

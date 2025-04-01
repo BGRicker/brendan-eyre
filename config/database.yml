@@ -1,19 +1,18 @@
-development: &default
+default: &default
   adapter: postgresql
-  database: brendaneyre_development
   encoding: utf8
-  min_messages: warning
-  pool: <%= Integer(ENV.fetch("DB_POOL", 5)) %>
-  reaping_frequency: <%= Integer(ENV.fetch("DB_REAPING_FREQUENCY", 10)) %>
-  timeout: 5000
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: brendaneyre_development
 
 test:
   <<: *default
   database: brendaneyre_test
 
-production: &deploy
-  encoding: utf8
-  min_messages: warning
-  pool: <%= [Integer(ENV.fetch("MAX_THREADS", 5)), Integer(ENV.fetch("DB_POOL", 5))].max %>
-  timeout: 5000
-  url:  <%= ENV.fetch("DATABASE_URL", "") %>
+production:
+  <<: *default
+  database: brendaneyre_production
+  username: brendaneyre
+  password: <%= ENV['BRENDANEYRE_DATABASE_PASSWORD'] %>

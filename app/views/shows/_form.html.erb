@@ -4,6 +4,8 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    Single date show: "January 1 2026"<br>
+    Multiple date show: "October 25 - 31 2026"
     <%= f.input :dates %>
     <%= f.input :venue %>
     <%= f.input :location %>

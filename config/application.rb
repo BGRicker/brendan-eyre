@@ -26,5 +26,7 @@ module Brendaneyre
     config.load_defaults 5.2
     config.generators.system_tests = nil
     config.active_job.queue_adapter = :delayed_job
+    config.time_zone = 'America/New_York'
+    config.active_record.default_timezone = :local
   end
 end

@@ -9,6 +9,16 @@ RSpec.describe Show, type: :model do
     it "converts the date string to a Date object" do
       expect(show.formatted_date.class).to eq(Date)
     end
+
+    it "defaults to current year when no year is specified" do
+      current_year = Date.current.year
+      expect(show.formatted_date.year).to eq(current_year)
+    end
+
+    it "uses specified year when provided" do
+      show_with_year = FactoryBot.create(:show, user: user, dates: "October 31 2025")
+      expect(show_with_year.formatted_date.year).to eq(2025)
+    end
   end
 
   describe "#valid_shows" do

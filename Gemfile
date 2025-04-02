@@ -20,6 +20,11 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
+gem "sassc-rails"
+gem "bourbon"
+gem "neat"
+gem "bootstrap-sass"
+gem "jquery-rails"
 
 # Authentication
 gem "devise"

@@ -3,10 +3,19 @@
 @import "bourbon";
 @import "neat";
 
-@import "base/base";
-
+// Bootstrap
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// Base styles
+@import "base/variables";
+@import "base/buttons";
+@import "base/forms";
+@import "base/layout";
+@import "base/lists";
+@import "base/media";
+@import "base/tables";
+@import "base/typography";
 
 @import url("font-awesome_icon-font.css");
 @import url("et-line_icon-font.css");

@@ -23,7 +23,6 @@ gem "tailwindcss-rails"
 gem "sassc-rails"
 gem "bourbon"
 gem "neat"
-gem "bootstrap-sass"
 gem "jquery-rails"
 
 # Authentication

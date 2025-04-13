@@ -21,8 +21,6 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "tailwindcss-rails"
 gem "sassc-rails"
-gem "bourbon"
-gem "neat"
 gem "jquery-rails"
 
 # Authentication

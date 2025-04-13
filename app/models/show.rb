@@ -1,6 +1,10 @@
 class Show < ApplicationRecord
   belongs_to :user
 
+  validates :dates, presence: true
+  validates :venue, presence: true
+  validates :location, presence: true
+
   attr_reader :formatted_date
 
   def formatted_date

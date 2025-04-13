@@ -5,66 +5,69 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.6.3"
+ruby "3.2.2"
 
-
-gem "autoprefixer-rails"
-
-gem "honeybadger"
-gem "pg"
-gem "puma"
-gem "rack-canonical-host"
-gem "rails", "~> 5.2.0"
-gem "recipient_interceptor"
-gem "sassc-rails"
-gem "skylight"
-gem "sprockets", ">= 3.0.0"
-gem "title"
-gem "tzinfo-data", platforms: [:mingw, :x64_mingw, :mswin, :jruby]
-gem "uglifier"
+# Core gems
+gem "rails", "~> 7.1.0"
+gem "pg", "~> 1.5"
+gem "puma", "~> 6.0"
 gem "bootsnap", require: false
-gem 'jquery-rails'
-gem 'bootstrap-sass'
-gem 'bcrypt'
-gem 'devise'
+gem "tzinfo-data", platforms: %i[ windows jruby ]
 
+# Frontend
+gem "sprockets-rails"
+gem "importmap-rails"
+gem "turbo-rails"
+gem "stimulus-rails"
+gem "tailwindcss-rails"
+gem "sassc-rails"
+gem "bourbon"
+gem "neat"
+gem "jquery-rails"
+
+# Authentication
+gem "devise"
+
+# Background jobs
+gem "delayed_job_active_record"
+
+# Monitoring
+gem "honeybadger"
+gem "skylight"
+
+# Utilities
+gem "rack-canonical-host"
+gem "recipient_interceptor"
+gem "title"
+gem "simple_form"
 
 group :development do
-  gem "listen"
+  gem "web-console"
   gem "rack-mini-profiler", require: false
   gem "spring"
-  gem "web-console"
+  gem "listen"
 end
 
 group :development, :test do
-  gem "awesome_print"
-  gem "bundler-audit", ">= 0.5.0", require: false
+  gem "debug", platforms: %i[ mri windows ]
   gem "dotenv-rails"
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "bullet"
   gem "pry-byebug"
   gem "pry-rails"
+  gem "bundler-audit", require: false
 end
 
 group :test do
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
+  gem "database_cleaner-active_record"
   gem "formulaic"
   gem "launchy"
   gem "simplecov", require: false
   gem "timecop"
   gem "webmock"
+  gem "shoulda-matchers"
 end
-
-gem "suspenders", group: [:development, :test]
-
-gem 'oj'
-gem 'high_voltage'
-gem 'bourbon', '>= 5.0.1'
-gem 'neat', '>= 3.0.1'
-gem 'spring-commands-rspec', group: :development
-gem 'rspec-rails', '~> 3.6', group: [:development, :test]
-gem 'shoulda-matchers', group: :test
-gem 'capybara-selenium', group: :test
-gem 'chromedriver-helper', group: :test
-gem 'simple_form'
-gem 'bullet', group: [:development, :test]
-gem 'factory_bot_rails', group: [:development, :test]
-gem 'delayed_job_active_record'
-gem 'rack-timeout', group: :production

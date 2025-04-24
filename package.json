@@ -2,6 +2,26 @@
   "name": "brendaneyre",
   "private": true,
   "dependencies": {
-    "normalize.css": "^8.0.1"
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^7.3.0",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.2",
+    "jquery": "^3.7.1",
+    "normalize.css": "^8.0.1",
+    "sass": "^1.69.5"
+  },
+  "scripts": {
+    "build:js": "esbuild app/javascript/*.js --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets --format=esm",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
+    "build": "yarn build:css && yarn build:js"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.29",
+    "@types/node": "^20.10.5",
+    "autoprefixer": "^10.4.16",
+    "esbuild": "^0.19.11",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3"
   }
 }

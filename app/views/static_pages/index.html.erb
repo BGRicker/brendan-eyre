@@ -42,27 +42,15 @@
           <!-- Navbar Navigation -->
           <div class="nav-menu singlepage-nav">
             <ul class="nav-menu-inner">
-              <li>
-                <%= link_to "Home", "http://brendaneyre.com#intro" %>
-              </li>
-              <li>
-                <%= link_to "About", "http://brendaneyre.com#about" %>
-              </li>
-              <li>
-                <%= link_to "Shows", "http://brendaneyre.com#shows" %>
-              </li>
-              <li>
-                <%= link_to "Podcast", "http://brendaneyre.com#podcast" %>
-              </li>
-              <li>
-                <%= link_to "Contact", "http://brendaneyre.com#footer" %>
-              </li>
-              <li>
-                <%= link_to "Press", "/press.html" %>
-              </li>
+              <li><%= link_to "Home", root_path(anchor: "intro") %></li>
+              <li><%= link_to "About", root_path(anchor: "about") %></li>
+              <li><%= link_to "Shows", root_path(anchor: "shows") %></li>
+              <li><%= link_to "TikTok", "https://www.tiktok.com/@RealBrendanEyre", target: "_blank", rel: "noopener", class: "no-scroll" %></li>
+              <li><%= link_to "Instagram", "https://www.instagram.com/eyrebud/?hl=en", target: "_blank", rel: "noopener", class: "no-scroll" %></li>
+              <li><%= link_to "Press", press_path, class: "no-scroll" %></li>
               <% if current_user %>
-                <li><%= link_to "New Show", new_show_path %></li>
-                <li><%= link_to "Shows", shows_path %></li>
+                <li><%= link_to "New Show", new_show_path, class: "no-scroll" %></li>
+                <li><%= link_to "Shows", shows_path, class: "no-scroll" %></li>
               <% end %>
             </ul>
           </div>
@@ -97,19 +85,15 @@
       <section id="about" class="section-padding">
         <div class="container text-center mb-60">
           <h1>About Brendan</h1>
-          <p class="lead-lg max-width-700">Brendan Eyre is one of New
-          York's top up and coming comedians. He has appeared on Late
-          Night with Seth Meyers, Adam Devine's House Party on Comedy
-          Central, Gotham Comedy Live on AXS TV, and Red Eye on Fox News.
-          He was a New Face of Comedy at the prestigious Just for Laughs
-          comedy festival in Montreal and  is a regular on Sirius
-          Satellite Radio. Brendan hosts the popular Rad Dudecast Podcast
-          along with Anthony Devito and Greg Stone and  headlines clubs
-          throughout the country, He is also a blue belt in jiu
-          jitsu.</p></br></br></br>
+          <p class="lead-lg max-width-700">Brendan Eyre is one of the country's top club and corporate event comedians. His laid back, relatable style has proven a hit with audiences all over the world. He has appeared on Late Night with Seth Meyers on NBC, Comedy Central, Gotham Comedy Live, and his comedy has been viewed over 50 million times on TikTok. He was also a New Face of Comedy at the prestigious Just For Laughs comedy festival and he is heard regularly on Sirius XM radio. 
+</p></br></br></br>
           <iframe src="https://player.vimeo.com/video/319537174" width="100%"
                                                                  height="360" frameborder="0" webkitallowfullscreen
                                                                               mozallowfullscreen allowfullscreen></iframe>
+
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/srdJI4qC7SQ?si=BCj-HByV5HqqOmtw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/hgxfDWp1Clc?si=tjje71-zTjONBwb7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </section>
       <!-- End About Section -->
@@ -188,9 +172,6 @@
             </li>
             <li>
               <a target="_blank" href="https://www.instagram.com/eyrebud/?hl=en"><i class="fa fa-instagram"></i></a>
-            </li>
-            <li>
-              <a target="_blank" href="https://twitter.com/theraddudecast"><i class="fa fa-microphone"></i></a>
             </li>
           </ul>
           <p class="copyright">

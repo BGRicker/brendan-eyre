@@ -570,7 +570,7 @@ $(function () {
     $('.singlepage-nav').singlePageNav({
         offset: 0,
         currentClass: 'current',
-        filter: ':not(.external)',
+        filter: ':not(.no-scroll)',
         easing: 'easeInOutExpo',
         speed: 1500,
         updateHash: true,

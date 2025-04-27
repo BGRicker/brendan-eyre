@@ -7,4 +7,4 @@ import "jquery"
 
 // Make jQuery available globally
 window.jQuery = jQuery
-window.$ = jQuery import "controllers"
+window.$ = jQuery

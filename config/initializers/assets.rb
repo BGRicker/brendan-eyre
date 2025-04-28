@@ -11,5 +11,12 @@ Rails.application.config.assets.version = "1.0"
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
+Rails.application.config.assets.paths << Rails.root.join("node_modules")
 Rails.application.config.assets.paths << Rails.root.join("app/assets/builds")
+
 Rails.application.config.assets.precompile += %w( tailwind.css )
+
+# Don't process Tailwind CSS with Sass
+Rails.application.config.assets.configure do |env|
+  env.register_preprocessor 'text/css', Sprockets::DirectiveProcessor.new(comments: ["//", ["/*", "*/"]])
+end

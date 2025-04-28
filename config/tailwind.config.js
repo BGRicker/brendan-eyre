@@ -5,7 +5,7 @@ module.exports = {
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/views/**/*',
   ],
   theme: {
     extend: {
@@ -15,8 +15,12 @@ module.exports = {
     },
   },
   plugins: [
-    // require('@tailwindcss/forms'),
-    // require('@tailwindcss/typography'),
-    // require('@tailwindcss/container-queries'),
-  ]
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+  ],
+  corePlugins: {
+    // Disable Tailwind's reset as we're using our own
+    preflight: false,
+  }
 }

@@ -16,7 +16,11 @@ Rails.application.config.assets.paths << Rails.root.join("app/assets/builds")
 
 Rails.application.config.assets.precompile += %w( tailwind.css )
 
-# Don't process Tailwind CSS with Sass
+# Configure Sprockets to handle modern CSS syntax
 Rails.application.config.assets.configure do |env|
-  env.register_preprocessor 'text/css', Sprockets::DirectiveProcessor.new(comments: ["//", ["/*", "*/"]])
+  env.register_mime_type 'text/tailwindcss', extensions: ['.tailwind.css']
+  env.register_preprocessor 'text/tailwindcss', Sprockets::DirectiveProcessor.new(comments: ["//", ["/*", "*/"]])
+  
+  # Skip Sass processing for Tailwind files
+  env.register_bundle_processor 'text/tailwindcss', Sprockets::Bundle
 end

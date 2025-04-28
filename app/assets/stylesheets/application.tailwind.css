@@ -1,3 +1,4 @@
+/* Tailwind CSS entry point - DO NOT process with Sass */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

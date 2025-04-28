@@ -11,7 +11,7 @@
     "sass": "^1.69.5"
   },
   "scripts": {
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/tailwind.css -o ./public/assets/tailwind.css --minify",
+    "build:css": "mkdir -p public/assets && tailwindcss -i ./app/assets/stylesheets/tailwind.css -o ./public/assets/tailwind.css --minify",
     "build": "yarn build:css"
   },
   "devDependencies": {

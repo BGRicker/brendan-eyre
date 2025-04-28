@@ -14,11 +14,7 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [],
   corePlugins: {
     // Disable Tailwind's reset as we're using our own
     preflight: false,

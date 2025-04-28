@@ -5,16 +5,12 @@
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^7.3.0",
     "@popperjs/core": "^2.11.8",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.10",
     "bootstrap": "^5.3.2",
     "jquery": "^3.7.1",
     "normalize.css": "^8.0.1",
     "sass": "^1.69.5"
   },
   "scripts": {
-    "build:js": "esbuild app/javascript/*.js --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets --format=esm",
     "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/tailwind.css --minify",
     "build": "yarn build:css"
   },

@@ -1,7 +1,6 @@
 // Import and register all your controllers from the importmap via controllers/**/*_controller
 import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
+import HelloController from "./hello_controller"
 
 window.Stimulus = Application.start()
-const context = require.context(".", true, /\.js$/)
-window.Stimulus.load(definitionsFromContext(context))
+window.Stimulus.register("hello", HelloController)

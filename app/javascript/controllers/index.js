@@ -4,3 +4,4 @@ import HelloController from "./hello_controller"
 
 window.Stimulus = Application.start()
 window.Stimulus.register("hello", HelloController)
+ 

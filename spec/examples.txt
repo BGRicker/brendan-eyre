@@ -1,19 +1,19 @@
 example_id                                                | status  | run_time        |
 --------------------------------------------------------- | ------- | --------------- |
-./spec/controllers/shows_controller_spec.rb[1:1:1]        | passed  | 0.03177 seconds |
-./spec/controllers/shows_controller_spec.rb[1:2:1]        | passed  | 0.00472 seconds |
-./spec/controllers/shows_controller_spec.rb[1:3:1]        | passed  | 0.00311 seconds |
-./spec/controllers/shows_controller_spec.rb[1:4:1]        | passed  | 0.00409 seconds |
-./spec/controllers/shows_controller_spec.rb[1:5:1:1]      | passed  | 0.00436 seconds |
-./spec/controllers/shows_controller_spec.rb[1:5:1:2]      | passed  | 0.00437 seconds |
-./spec/controllers/shows_controller_spec.rb[1:5:2:1]      | passed  | 0.00612 seconds |
-./spec/controllers/shows_controller_spec.rb[1:6:1:1]      | passed  | 0.00609 seconds |
-./spec/controllers/shows_controller_spec.rb[1:6:1:2]      | passed  | 0.00568 seconds |
-./spec/controllers/shows_controller_spec.rb[1:6:2:1]      | passed  | 0.00842 seconds |
-./spec/controllers/shows_controller_spec.rb[1:7:1]        | passed  | 0.00602 seconds |
-./spec/controllers/shows_controller_spec.rb[1:7:2]        | passed  | 0.00447 seconds |
-./spec/controllers/static_pages_controller_spec.rb[1:1:1] | passed  | 0.01983 seconds |
-./spec/models/show_spec.rb[1:1:1]                         | passed  | 0.00974 seconds |
-./spec/models/show_spec.rb[1:2:1:1]                       | passed  | 0.00521 seconds |
-./spec/models/show_spec.rb[1:2:2:1]                       | passed  | 0.00602 seconds |
+./spec/controllers/shows_controller_spec.rb[1:1:1]        | passed  | 0.00572 seconds |
+./spec/controllers/shows_controller_spec.rb[1:2:1]        | passed  | 0.00624 seconds |
+./spec/controllers/shows_controller_spec.rb[1:3:1]        | passed  | 0.00489 seconds |
+./spec/controllers/shows_controller_spec.rb[1:4:1]        | passed  | 0.00494 seconds |
+./spec/controllers/shows_controller_spec.rb[1:5:1:1]      | passed  | 0.00862 seconds |
+./spec/controllers/shows_controller_spec.rb[1:5:1:2]      | passed  | 0.00528 seconds |
+./spec/controllers/shows_controller_spec.rb[1:5:2:1]      | passed  | 0.00468 seconds |
+./spec/controllers/shows_controller_spec.rb[1:6:1:1]      | passed  | 0.00843 seconds |
+./spec/controllers/shows_controller_spec.rb[1:6:1:2]      | passed  | 0.00722 seconds |
+./spec/controllers/shows_controller_spec.rb[1:6:2:1]      | passed  | 0.00713 seconds |
+./spec/controllers/shows_controller_spec.rb[1:7:1]        | passed  | 0.00619 seconds |
+./spec/controllers/shows_controller_spec.rb[1:7:2]        | passed  | 0.00491 seconds |
+./spec/controllers/static_pages_controller_spec.rb[1:1:1] | passed  | 0.02821 seconds |
+./spec/models/show_spec.rb[1:1:1]                         | passed  | 0.00374 seconds |
+./spec/models/show_spec.rb[1:2:1:1]                       | passed  | 0.03327 seconds |
+./spec/models/show_spec.rb[1:2:2:1]                       | passed  | 0.00499 seconds |
 ./spec/models/user_spec.rb[1:1]                           | pending | 0.00001 seconds |

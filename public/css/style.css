@@ -4122,3 +4122,12 @@ form .error {
         margin-right: 10px;
         font-size: 18px;
     }
+
+@media (max-width: 1024px) {
+  .nav-menu {
+    display: none;
+  }
+  .nav-menu.active {
+    display: block;
+  }
+}

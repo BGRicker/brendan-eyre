@@ -134,12 +134,12 @@ $(function () {
     };
 
     // Mobile menu toggle icon
-    mobile_menu_icon.click(function () {
-        if (!($(this).hasClass('active'))) {
+    $(document).on('click', '.nav-mobile', function () {
+        console.log('Hamburger clicked (delegated)');
+        if (!mobile_menu_icon.hasClass('active')) {
             mobile_menu_icon.addClass('active');
             mobile_menu.addClass('active');
-        }
-        else if ($(this).hasClass('active')) {
+        } else {
             mobile_menu_icon.removeClass('active');
             mobile_menu.removeClass('active');
         }

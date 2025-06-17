@@ -17,3 +17,10 @@ body {
 body {
   margin: 0;
 }
+
+.nav-mobile.nav-bar-icon {
+  z-index: 9999;
+  position: relative;
+  pointer-events: auto;
+  cursor: pointer;
+}

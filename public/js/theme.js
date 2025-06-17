@@ -112,21 +112,21 @@ $(function () {
 
     // Mobile menu max height
     function int_nav_menu_height() {
-        mobile_menu.css("max-height", $(window).height() - $(".header").height() - 20 + "px"), $(window).width() <= 1024 ? $(".header").addClass("mobile-device") : $(window).width() > 1024 && ($(".header").removeClass("mobile-device"))
+        mobile_menu.css("max-height", $(window).height() - $(".header").height() - 20 + "px"), $(window).width() <= 1024 ? $(".header").addClass("mobile-device") : $(window).width() > 1024 && $(".header").removeClass("mobile-device")
     };
 
-    // Mobile menu toggle icon
-    mobile_menu_icon.click(function () {
-        if (!($(this).hasClass('active'))) {
-            mobile_menu_icon.addClass('active');
-            mobile_menu.addClass('active');
-        }
-        else if ($(this).hasClass('active')) {
-            mobile_menu_icon.removeClass('active');
-            mobile_menu.removeClass('active');
-        }
+    // Hamburger menu toggle (attach after DOM ready, no delegation)
+    mobile_menu_icon.off('click.hamburger').on('click.hamburger', function(e) {
+        e.preventDefault();
+        mobile_menu_icon.toggleClass('active');
+        mobile_menu.toggleClass('active');
     });
 
+    // Close menu when a nav link is clicked (attach after DOM ready, no delegation)
+    mobile_menu.find('a').off('click.menuclose').on('click.menuclose', function() {
+        mobile_menu.removeClass('active');
+        mobile_menu_icon.removeClass('active');
+    });
 
     // Dropdown Sub menu
     var menu_Sub = $(".menu-has-sub");

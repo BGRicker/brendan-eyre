@@ -49,13 +49,21 @@ class Show < ApplicationRecord
       start_parts = parts.first.strip.split
       end_parts = parts.last.strip.split
       
-      # If end part doesn't include month/year, use from start
-      month = start_parts[0]
-      year = (end_parts.last =~ /\d{4}/) ? end_parts.last : start_parts.last
-      
-      # Construct the full end date
-      date_str = [month, end_parts.first, year].join(' ')
-      parse_date(date_str)
+      # Check if the range has an explicit year
+      if clean_dates.match(/\b\d{4}\b/)
+        # Has explicit year, use the old logic
+        month = start_parts[0]
+        year = (end_parts.last =~ /\d{4}/) ? end_parts.last : start_parts.last
+        
+        # Construct the full end date
+        date_str = [month, end_parts.first, year].join(' ')
+        parse_date(date_str)
+      else
+        # No year specified, construct the end date and let parse_date handle the year logic
+        month = start_parts[0]
+        date_str = [month, end_parts.first].join(' ')
+        parse_date(date_str)
+      end
     else
       parse_date(clean_dates)
     end
@@ -70,11 +78,21 @@ class Show < ApplicationRecord
   private
 
   def parse_date(date_str)
-    # Try to parse with year first
-    Date.parse(date_str)
-  rescue ArgumentError
-    # If no year specified, assume current year
-    Date.parse("#{date_str} #{Time.current.year}")
+    # Check if the date string contains a 4-digit year
+    if date_str.match(/\b\d{4}\b/)
+      # Has explicit year, parse normally
+      Date.parse(date_str)
+    else
+      # No year specified, assume the next occurrence of this date
+      parsed_date = Date.parse("#{date_str} #{Date.current.year}")
+      
+      # If this date has already passed this year, assume next year
+      if parsed_date < Date.current
+        parsed_date = Date.parse("#{date_str} #{Date.current.year + 1}")
+      end
+      
+      parsed_date
+    end
   rescue
     nil
   end

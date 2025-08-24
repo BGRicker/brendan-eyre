@@ -40,11 +40,9 @@ class Show < ApplicationRecord
   def end_date
     return nil if dates.blank?
     
-    # Clean the date string
     clean_dates = dates.gsub(',', '').strip
     
     if clean_dates.include?('-')
-      # For ranges like "May 1-3 2025", get the end date
       parts = clean_dates.split('-')
       start_parts = parts.first.strip.split
       end_parts = parts.last.strip.split
